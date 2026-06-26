@@ -13,7 +13,7 @@ En este entorno de manufactura alimentaria, la detección temprana es crítica: 
 
 El sistema inspecciona visualmente el flujo de fruta para clasificarlo en dos categorías:
 * **Apta para Bañado (`Healthy`):** Frambuesas estructuralmente firmes, maduras y completamente limpias, capaces de resistir el peso y calor del chocolate fluido.
-* **Rechazada (`Damaged / Rotten`):** Frambuesas que presentan aplastamiento, ablandamiento severo, o signos de putrefacción (como moho blanco o *Botrytis*), los cuales destruirían la calidad microbiológica y el sabor del producto final.
+* **Rechazada (`Damaged / Rotten`):** Frambuesas que presentan aplastamiento, falta de tamaño, ablandamiento severo, o signos de putrefacción (como moho blanco o *Botrytis*), los cuales destruirían la calidad microbiológica y el sabor del producto final.
 
 
 ---
@@ -77,4 +77,64 @@ Comando de Ejemplo:
 ```bash
 python MV_recortes.py -v video_frambuesas.mp4 -o frambuesas_recortadas_100x100 -t 30 -i 10
 ```
+---
+**CNN Models**
 
+Para la segunda etapa del proyecto se llevo a cabo una clasificación de la data obtenida en base a los videos de la planta, para poder entrenar a los 2 modelos de CNN creados en las 2 clases especificadas antes:
+
+* **Apta para Bañado (`Healthy`):** Frambuesas estructuralmente firmes, maduras y completamente limpias, capaces de resistir el peso y calor del chocolate fluido.
+* **Rechazada (`Damaged / Rotten`):** Frambuesas que presentan aplastamiento, ablandamiento severo, falta de tamaño o signos de putrefacción (como moho blanco o *Botrytis*), los cuales destruirían la calidad microbiológica y el sabor del producto final.
+
+
+---
+### CNN Model 1
+---
+
+#### 1. Resultado de Accuracy
+
+![accuracy_model1](img_readme/model1_accuracy.png)
+
+#### 2. Confusion Matrix
+
+![matrix_model1](img_readme/model1_confusion_matrix.png)
+
+#### 3. Report
+
+```
+Classification Report:
+
+               precision    recall  f1-score   support
+
+       Buenas       0.90      0.93      0.92        41
+Malas o rotas       0.40      0.33      0.36         6
+
+     accuracy                           0.85        47
+    macro avg       0.65      0.63      0.64        47
+ weighted avg       0.84      0.85      0.85        47
+```
+---
+### CNN Model 2
+---
+
+#### 1. Resultado de Accuracy
+
+![accuracy_model1](img_readme/model2_accuracy.png)
+
+#### 2. Confusion Matrix
+
+![matrix_model2](img_readme/model2_confusion_matrix.png)
+
+#### 3. Report
+
+````
+Reporte Detallado de Clasificación:
+
+               precision    recall  f1-score   support
+
+       Buenas       0.73      0.84      0.78        51
+Malas o rotas       0.73      0.58      0.65        38
+
+     accuracy                           0.73        89
+    macro avg       0.73      0.71      0.71        89
+ weighted avg       0.73      0.73      0.72        89
+```
